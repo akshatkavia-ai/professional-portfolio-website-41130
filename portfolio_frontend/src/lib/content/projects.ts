@@ -14,38 +14,51 @@ export type Project = {
 /**
  * PUBLIC_INTERFACE
  * projects
- * Placeholder project content to render in the ProjectsGrid.
+ * Provided project content to render in the ProjectsGrid.
  */
 export const projects: Project[] = [
   {
-    slug: "ocean-analytics",
-    title: "Ocean Analytics",
-    subtitle: "Real-time dashboard",
+    slug: "shopnest",
+    title: "Shopnest",
+    subtitle: "Full-stack e-commerce platform",
     description:
-      "A high-performance analytics dashboard with live data visualizations and a11y-first interactions.",
-    tags: ["Next.js", "TypeScript", "Charts"],
-    live: "#",
-    repo: "#",
+      "A production-ready e-commerce application with product listings, cart, checkout, and order management.",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Prisma"],
+    live: "",
+    repo: "",
     cover: "/og-image.png",
   },
   {
-    slug: "wave-ui",
-    title: "Wave UI",
-    subtitle: "Design system",
+    slug: "helmet-pothole-detection",
+    title: "Helmet and Pothole Detection",
+    subtitle: "Computer vision safety system",
     description:
-      "A bold design system with reusable components, tokens, and dark-mode optimized palettes.",
-    tags: ["Storybook", "Tailwind", "Accessibility"],
-    live: "#",
-    repo: "#",
+      "Real-time detection of helmet usage and potholes using deep learning to enhance road safety.",
+    tags: ["Python", "OpenCV", "TensorFlow"],
+    live: "",
+    repo: "",
+    cover: "/og-image.png",
   },
   {
-    slug: "tide-automation",
-    title: "Tide Automation",
-    subtitle: "Workflow engine",
+    slug: "gitnavi",
+    title: "GitNavi",
+    subtitle: "AI-assisted Git command navigator",
     description:
-      "No-code workflow builder with drag-and-drop nodes and automated deployment pipelines.",
-    tags: ["React", "DnD", "Automation"],
-    live: "#",
-    repo: "#",
+      "An AI-powered assistant that helps developers discover, compose, and execute Git commands efficiently.",
+    tags: ["Node.js", "TypeScript", "CLI"],
+    live: "",
+    repo: "",
+    cover: "/og-image.png",
+  },
+  {
+    slug: "pawguard",
+    title: "PawGuard",
+    subtitle: "Lost pet recovery platform",
+    description:
+      "A community-driven platform to report, locate, and reunite lost pets with their owners.",
+    tags: ["React", "Firebase", "Maps"],
+    live: "",
+    repo: "",
+    cover: "/og-image.png",
   },
 ];
