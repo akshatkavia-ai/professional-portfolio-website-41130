@@ -36,7 +36,7 @@ export default function Home() {
             <span>Projects</span>
             <span aria-hidden="true" className="absolute left-0 -bottom-1 h-[3px] w-full bg-gradient-to-r from-orange-500/70 to-emerald-600/70 rounded-full"></span>
           </h2>
-          <div className="reveal">
+          <div className="reveal is-visible">
             <ProjectsGrid />
           </div>
         </div>
@@ -48,7 +48,7 @@ export default function Home() {
             <span>Skills</span>
             <span aria-hidden="true" className="absolute left-0 -bottom-1 h-[3px] w-full bg-gradient-to-r from-orange-500/70 to-emerald-600/70 rounded-full"></span>
           </h2>
-          <div className="reveal">
+          <div className="reveal is-visible">
             <SkillsGrid />
           </div>
         </div>
@@ -60,7 +60,7 @@ export default function Home() {
             <span>Experience</span>
             <span aria-hidden="true" className="absolute left-0 -bottom-1 h-[3px] w-full bg-gradient-to-r from-orange-500/70 to-emerald-600/70 rounded-full"></span>
           </h2>
-          <div className="reveal">
+          <div className="reveal is-visible">
             <ExperienceTimeline />
           </div>
         </div>
@@ -72,7 +72,7 @@ export default function Home() {
             <span>Education</span>
             <span aria-hidden="true" className="absolute left-0 -bottom-1 h-[3px] w-full bg-gradient-to-r from-orange-500/70 to-emerald-600/70 rounded-full"></span>
           </h2>
-          <div className="reveal">
+          <div className="reveal is-visible">
             <EducationSection />
           </div>
         </div>
@@ -84,7 +84,7 @@ export default function Home() {
             <span>Certificates</span>
             <span aria-hidden="true" className="absolute left-0 -bottom-1 h-[3px] w-full bg-gradient-to-r from-orange-500/70 to-emerald-600/70 rounded-full"></span>
           </h2>
-          <div className="reveal">
+          <div className="reveal is-visible">
             <CertificatesSection />
           </div>
         </div>
@@ -96,7 +96,7 @@ export default function Home() {
             <span>Contact</span>
             <span aria-hidden="true" className="absolute left-0 -bottom-1 h-[3px] w-full bg-gradient-to-r from-orange-500/70 to-emerald-600/70 rounded-full"></span>
           </h2>
-          <div className="reveal">
+          <div className="reveal is-visible">
             <ContactForm />
           </div>
         </div>
