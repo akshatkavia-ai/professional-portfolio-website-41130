@@ -1,4 +1,4 @@
-import { educationList } from "@/lib/content/education";
+import { educationList as educationData } from "@/lib/content/education";
 
 /**
  * PUBLIC_INTERFACE
@@ -6,9 +6,19 @@ import { educationList } from "@/lib/content/education";
  * Renders education history using the project's bold theme cards and accessible markup.
  */
 export default function EducationSection() {
+  const data = Array.isArray(educationData) ? educationData : [];
+
+  if (!data.length) {
+    return (
+      <div className="card-surface p-6 text-gray-300">
+        No education entries to display yet.
+      </div>
+    );
+  }
+
   return (
     <ol className="relative border-s border-white/10">
-      {educationList.map((edu, idx) => (
+      {data.map((edu, idx) => (
         <li key={`${edu.institution}-${idx}`} className="ms-6 py-6">
           <span className="absolute -start-3 mt-2 flex h-6 w-6 items-center justify-center rounded-full bg-orange-500 text-black ring-2 ring-black" />
           <div

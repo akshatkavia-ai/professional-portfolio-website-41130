@@ -1,4 +1,4 @@
-import { certificates } from "@/lib/content/certificates";
+import { certificates as certificatesData } from "@/lib/content/certificates";
 
 /**
  * PUBLIC_INTERFACE
@@ -6,9 +6,19 @@ import { certificates } from "@/lib/content/certificates";
  * Displays certificates in a responsive card grid with verification links.
  */
 export default function CertificatesSection() {
+  const data = Array.isArray(certificatesData) ? certificatesData : [];
+
+  if (!data.length) {
+    return (
+      <div className="card-surface p-6 text-gray-300">
+        No certificates to display yet.
+      </div>
+    );
+  }
+
   return (
     <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      {certificates.map((c, idx) => (
+      {data.map((c, idx) => (
         <article
           tabIndex={0}
           key={`${c.name}-${idx}`}
