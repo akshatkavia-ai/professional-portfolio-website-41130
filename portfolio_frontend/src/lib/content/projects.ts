@@ -7,6 +7,8 @@ export type Project = {
   live?: string;
   repo?: string;
   docs?: string;
+  /** Optional cover image path for cards (static export friendly) */
+  cover?: string;
 };
 
 /**
@@ -24,6 +26,7 @@ export const projects: Project[] = [
     tags: ["Next.js", "TypeScript", "Charts"],
     live: "#",
     repo: "#",
+    cover: "/og-image.png",
   },
   {
     slug: "wave-ui",

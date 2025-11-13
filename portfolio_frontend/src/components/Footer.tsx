@@ -10,8 +10,10 @@ export default function Footer() {
   return (
     <div className="mt-16 border-t border-white/10 bg-black/60 py-10">
       <div className="container-pro flex flex-col md:flex-row items-center justify-between gap-4">
-        <p className="text-gray-400">&copy; {year} Ocean Professional. All rights reserved.</p>
-        <nav aria-label="Footer">
+        <p className="text-gray-400">
+          <span className="text-white/90 font-semibold">Akshat Mishra</span> — © {year}. Crafted with care.
+        </p>
+        <nav aria-label="Footer quick links">
           <ul className="flex items-center gap-6">
             <li><a href="#projects" className="text-gray-300 hover:text-white">Projects</a></li>
             <li><a href="#skills" className="text-gray-300 hover:text-white">Skills</a></li>

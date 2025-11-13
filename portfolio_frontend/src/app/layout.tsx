@@ -6,28 +6,28 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   metadataBase: new URL("http://localhost:3000"),
   title: {
-    default: "Ocean Professional Portfolio",
-    template: "%s | Ocean Professional",
+    default: "Akshat Mishra — Portfolio",
+    template: "%s | Akshat Mishra",
   },
   description:
-    "Bold, accessible personal portfolio showcasing projects, skills, and experience.",
-  applicationName: "Ocean Professional Portfolio",
-  authors: [{ name: "Your Name" }],
+    "Portfolio of Akshat Mishra — building bold, accessible web experiences with Next.js, TypeScript, and a11y-first design.",
+  applicationName: "Akshat Mishra — Portfolio",
+  authors: [{ name: "Akshat Mishra" }],
   themeColor: "#000000",
   openGraph: {
-    title: "Ocean Professional Portfolio",
+    title: "Akshat Mishra — Portfolio",
     description:
-      "Bold, accessible personal portfolio showcasing projects, skills, and experience.",
+      "Portfolio of Akshat Mishra — building bold, accessible web experiences with Next.js, TypeScript, and a11y-first design.",
     url: "/",
-    siteName: "Ocean Professional Portfolio",
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Portfolio preview" }],
+    siteName: "Akshat Mishra — Portfolio",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Portfolio preview for Akshat Mishra" }],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ocean Professional Portfolio",
+    title: "Akshat Mishra — Portfolio",
     description:
-      "Bold, accessible personal portfolio showcasing projects, skills, and experience.",
+      "Portfolio of Akshat Mishra — building bold, accessible web experiences with Next.js, TypeScript, and a11y-first design.",
     images: ["/og-image.png"],
   },
   icons: { icon: "/favicon.ico" },

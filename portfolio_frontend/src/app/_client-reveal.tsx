@@ -5,34 +5,53 @@ import { useEffect } from "react";
 /**
  * PUBLIC_INTERFACE
  * ClientReveal
- * Mount-only component that activates `.reveal` CSS animations using IntersectionObserver.
- * Respects prefers-reduced-motion by revealing content immediately.
+ * Adds intersection-observer 'reveal' animations, and updates CSS variable
+ * --scrollProgress for the compact top progress indicator. Respects
+ * prefers-reduced-motion.
  */
 export function ClientReveal() {
   useEffect(() => {
-    if (typeof window === "undefined") return;
+    const docEl = document.documentElement;
+    const prefersReduced =
+      window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const targets = Array.from(document.querySelectorAll<HTMLElement>(".reveal"));
-    if (prefersReduced) {
-      targets.forEach((el) => el.classList.add("is-visible"));
-      return;
+    // Scroll progress CSS var
+    const updateProgress = () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.body.scrollHeight - window.innerHeight;
+      const p = docHeight > 0 ? Math.min(1, Math.max(0, scrollTop / docHeight)) : 0;
+      docEl.style.setProperty("--scrollProgress", p.toString());
+    };
+    updateProgress();
+
+    // Reveal animation via IntersectionObserver
+    let observer: IntersectionObserver | null = null;
+    if (!prefersReduced && "IntersectionObserver" in window) {
+      observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer?.unobserve(entry.target);
+            }
+          });
+        },
+        { rootMargin: "0px 0px -10% 0px", threshold: 0.1 }
+      );
+      document.querySelectorAll(".reveal").forEach((el) => observer?.observe(el));
+    } else {
+      // If reduced motion, show immediately
+      document.querySelectorAll(".reveal").forEach((el) => el.classList.add("is-visible"));
     }
 
-    const io = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            io.unobserve(entry.target);
-          }
-        }
-      },
-      { rootMargin: "0px 0px -10% 0px", threshold: 0.15 }
-    );
+    window.addEventListener("scroll", updateProgress, { passive: true });
+    window.addEventListener("resize", updateProgress);
 
-    targets.forEach((el) => io.observe(el));
-    return () => io.disconnect();
+    return () => {
+      window.removeEventListener("scroll", updateProgress);
+      window.removeEventListener("resize", updateProgress);
+      if (observer) observer.disconnect();
+    };
   }, []);
 
   return null;

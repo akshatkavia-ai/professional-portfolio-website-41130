@@ -50,8 +50,8 @@ export default function NavBar() {
     >
       <div className="container-pro h-16 flex items-center justify-between">
         <Link href="/" aria-label="Home" className="flex items-center gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 rounded-md">
-          <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-orange-500 text-black font-extrabold">O</span>
-          <span className="text-white font-semibold tracking-wide">Ocean Pro</span>
+          <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-orange-500 text-black font-extrabold">A</span>
+          <span className="text-white font-semibold tracking-wide">Akshat Mishra</span>
         </Link>
 
         <button

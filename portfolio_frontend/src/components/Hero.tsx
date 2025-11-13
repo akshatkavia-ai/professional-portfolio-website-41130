@@ -10,20 +10,27 @@ export default function Hero() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-10">
       <div>
-        <span className="chip mb-3">Available for contracts</span>
-        <h1 className="mb-4">
+        <span className="chip mb-3" aria-label="Availability status">Open to opportunities</span>
+        <h1 className="mb-3 leading-tight">
           Hi, I’m{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-emerald-400">
-            Your Name
+          <span className="relative inline-block">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-emerald-400">
+              Akshat Mishra
+            </span>
+            <span aria-hidden="true" className="absolute left-0 -bottom-1 h-[3px] w-full bg-gradient-to-r from-orange-500/70 to-emerald-500/70 rounded-full animate-pulse-slow"></span>
           </span>
         </h1>
-        <p className="mb-8">
-          I design and build bold, accessible web experiences. Focused on React,
-          TypeScript, and performant, inclusive interfaces.
+        <p className="mb-8 max-w-prose">
+          I craft bold, accessible web experiences—focused on Next.js, TypeScript, performance and inclusive UI. Currently open to impactful roles and collaborations.
         </p>
         <div className="flex flex-wrap items-center gap-3">
-          <a href="#projects" className="btn btn-primary">View Projects</a>
-          <a href="#contact" className="btn btn-secondary">Contact Me</a>
+          <a href="#projects" className="btn btn-primary">Explore Projects</a>
+          <a href="#contact" className="btn btn-secondary">Get in Touch</a>
+        </div>
+        <div className="mt-6 flex items-center gap-3" aria-label="Social links">
+          <a className="chip hover:opacity-90" href="https://github.com/your-username" target="_blank" rel="noreferrer" aria-label="GitHub profile">GitHub</a>
+          <a className="chip hover:opacity-90" href="https://www.linkedin.com/in/your-handle" target="_blank" rel="noreferrer" aria-label="LinkedIn profile">LinkedIn</a>
+          <a className="chip hover:opacity-90" href="#contact" aria-label="Contact section link">Email</a>
         </div>
       </div>
       <div className="relative">

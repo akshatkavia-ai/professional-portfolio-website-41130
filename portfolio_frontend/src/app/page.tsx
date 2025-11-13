@@ -24,7 +24,10 @@ export default function Home() {
 
       <section id="projects" aria-labelledby="projects-heading" className="bg-black">
         <div className="container-pro">
-          <h2 id="projects-heading" className="mb-10">Projects</h2>
+          <h2 id="projects-heading" className="mb-6 relative inline-block">
+            <span>Projects</span>
+            <span aria-hidden="true" className="absolute left-0 -bottom-1 h-[3px] w-full bg-gradient-to-r from-orange-500/70 to-emerald-600/70 rounded-full"></span>
+          </h2>
           <div className="reveal">
             <ProjectsGrid />
           </div>
@@ -33,7 +36,10 @@ export default function Home() {
 
       <section id="skills" aria-labelledby="skills-heading" className="bg-black">
         <div className="container-pro">
-          <h2 id="skills-heading" className="mb-10">Skills</h2>
+          <h2 id="skills-heading" className="mb-6 relative inline-block">
+            <span>Skills</span>
+            <span aria-hidden="true" className="absolute left-0 -bottom-1 h-[3px] w-full bg-gradient-to-r from-orange-500/70 to-emerald-600/70 rounded-full"></span>
+          </h2>
           <div className="reveal">
             <SkillsGrid />
           </div>
@@ -42,7 +48,10 @@ export default function Home() {
 
       <section id="experience" aria-labelledby="experience-heading" className="bg-black">
         <div className="container-pro">
-          <h2 id="experience-heading" className="mb-10">Experience</h2>
+          <h2 id="experience-heading" className="mb-6 relative inline-block">
+            <span>Experience</span>
+            <span aria-hidden="true" className="absolute left-0 -bottom-1 h-[3px] w-full bg-gradient-to-r from-orange-500/70 to-emerald-600/70 rounded-full"></span>
+          </h2>
           <div className="reveal">
             <ExperienceTimeline />
           </div>
@@ -51,7 +60,10 @@ export default function Home() {
 
       <section id="education" aria-labelledby="education-heading" className="bg-black">
         <div className="container-pro">
-          <h2 id="education-heading" className="mb-10">Education</h2>
+          <h2 id="education-heading" className="mb-6 relative inline-block">
+            <span>Education</span>
+            <span aria-hidden="true" className="absolute left-0 -bottom-1 h-[3px] w-full bg-gradient-to-r from-orange-500/70 to-emerald-600/70 rounded-full"></span>
+          </h2>
           <div className="reveal">
             <EducationSection />
           </div>
@@ -60,7 +72,10 @@ export default function Home() {
 
       <section id="certificates" aria-labelledby="certificates-heading" className="bg-black">
         <div className="container-pro">
-          <h2 id="certificates-heading" className="mb-10">Certificates</h2>
+          <h2 id="certificates-heading" className="mb-6 relative inline-block">
+            <span>Certificates</span>
+            <span aria-hidden="true" className="absolute left-0 -bottom-1 h-[3px] w-full bg-gradient-to-r from-orange-500/70 to-emerald-600/70 rounded-full"></span>
+          </h2>
           <div className="reveal">
             <CertificatesSection />
           </div>
@@ -69,7 +84,10 @@ export default function Home() {
 
       <section id="contact" aria-labelledby="contact-heading" className="bg-black">
         <div className="container-pro">
-          <h2 id="contact-heading" className="mb-10">Contact</h2>
+          <h2 id="contact-heading" className="mb-6 relative inline-block">
+            <span>Contact</span>
+            <span aria-hidden="true" className="absolute left-0 -bottom-1 h-[3px] w-full bg-gradient-to-r from-orange-500/70 to-emerald-600/70 rounded-full"></span>
+          </h2>
           <div className="reveal">
             <ContactForm />
           </div>

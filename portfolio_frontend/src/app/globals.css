@@ -53,6 +53,8 @@
       radial-gradient(1200px 600px at 50% -10%, rgba(249,115,22,0.08), transparent 60%),
       radial-gradient(800px 400px at 80% 10%, rgba(16,185,129,0.07), transparent 60%),
       var(--bg);
+    /* Top scroll progress bar using background gradient that grows with scroll */
+    background-attachment: scroll, scroll, fixed;
   }
 
   /* Focus visible for accessibility */
@@ -170,6 +172,26 @@
   .ocean-radial {
     background: radial-gradient(1200px 600px at 50% -10%, rgba(249,115,22,0.25), transparent 60%),
                 radial-gradient(800px 400px at 80% 10%, rgba(16,185,129,0.18), transparent 60%);
+  }
+
+  @keyframes pulse-slow {
+    0%, 100% { opacity: .5; }
+    50% { opacity: 1; }
+  }
+  .animate-pulse-slow { animation: pulse-slow 2.2s ease-in-out infinite; }
+
+  /* Compact top progress indicator using fixed pseudo element */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0 0 auto 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    transform-origin: 0 50%;
+    transform: scaleX(var(--scrollProgress, 0));
+    z-index: 60;
+    opacity: .9;
+    pointer-events: none;
   }
   .visually-hidden {
     position: absolute !important;
