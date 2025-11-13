@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { socials } from "@/lib/content/socials";
 
 /**
  * PUBLIC_INTERFACE
@@ -7,6 +8,8 @@ import Image from "next/image";
  * projects and contact sections, plus a placeholder image.
  */
 export default function Hero() {
+  const socialLinks = socials.filter(s => s.url && s.label);
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-10">
       <div>
@@ -27,10 +30,20 @@ export default function Hero() {
           <a href="#projects" className="btn btn-primary">Explore Projects</a>
           <a href="#contact" className="btn btn-secondary">Get in Touch</a>
         </div>
-        <div className="mt-6 flex items-center gap-3" aria-label="Social links">
-          <a className="chip hover:opacity-90" href="https://github.com/your-username" target="_blank" rel="noreferrer" aria-label="GitHub profile">GitHub</a>
-          <a className="chip hover:opacity-90" href="https://www.linkedin.com/in/your-handle" target="_blank" rel="noreferrer" aria-label="LinkedIn profile">LinkedIn</a>
-          <a className="chip hover:opacity-90" href="#contact" aria-label="Contact section link">Email</a>
+        <div className="mt-6 flex flex-wrap items-center gap-3" aria-label="Social links">
+          {socialLinks.map((s) => (
+            <a
+              key={s.label}
+              className="chip hover:opacity-90"
+              href={s.url.startsWith("http") ? s.url : `https://${s.url}`}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={s.title ?? `${s.label} link`}
+              title={s.title ?? s.label}
+            >
+              {s.label}
+            </a>
+          ))}
         </div>
       </div>
       <div className="relative">

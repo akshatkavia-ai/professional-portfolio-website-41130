@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { socials } from "@/lib/content/socials";
 
 /**
  * PUBLIC_INTERFACE
@@ -24,6 +25,24 @@ export default function Footer() {
             <li><Link href="/health" className="text-gray-300 hover:text-white">Health</Link></li>
           </ul>
         </nav>
+      </div>
+      <div className="container-pro mt-6">
+        <ul className="flex flex-wrap items-center gap-3" aria-label="Social links">
+          {socials.map((s) => (
+            <li key={s.label}>
+              <a
+                className="chip hover:opacity-90"
+                href={s.url.startsWith("http") ? s.url : `https://${s.url}`}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={s.title ?? `${s.label} link`}
+                title={s.title ?? s.label}
+              >
+                {s.label}
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );
