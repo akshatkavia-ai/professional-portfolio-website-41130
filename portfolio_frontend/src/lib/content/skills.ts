@@ -6,13 +6,73 @@ export type SkillsGroup = {
 /**
  * PUBLIC_INTERFACE
  * skillsByCategory
- * Placeholder skill groups to render in the SkillsGrid.
+ * Skills grouped by category for the SkillsGrid component.
+ * This export is consumed statically; keep the array and type stable.
  */
 export const skillsByCategory: SkillsGroup[] = [
-  { category: "Languages", skills: ["TypeScript", "JavaScript", "Python"] },
-  { category: "Frameworks", skills: ["Next.js", "React", "Node.js"] },
-  { category: "Tools", skills: ["Git", "Docker", "Vercel", "CI/CD"] },
-  { category: "Design", skills: ["Accessibility", "Figma", "Design Systems"] },
-  { category: "Data", skills: ["REST", "GraphQL", "WebSockets"] },
-  { category: "Testing", skills: ["Jest", "Playwright", "Vitest"] },
+  {
+    category: "Frontend",
+    skills: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "JavaScript (ES6+)",
+      "HTML5",
+      "CSS3",
+      "Tailwind CSS",
+      "Responsive Design",
+      "Accessibility (a11y)",
+    ],
+  },
+  {
+    category: "Backend",
+    skills: [
+      "Node.js",
+      "Express",
+      "REST APIs",
+      "GraphQL",
+      "WebSockets",
+      "Authentication & Authorization",
+    ],
+  },
+  {
+    category: "Cloud & DevOps",
+    skills: [
+      "Docker",
+      "Vercel",
+      "CI/CD",
+      "GitHub Actions",
+      "Linux",
+    ],
+  },
+  {
+    category: "Databases",
+    skills: [
+      "PostgreSQL",
+      "MongoDB",
+      "Prisma ORM",
+      "Redis (basics)",
+    ],
+  },
+  {
+    category: "Testing & Quality",
+    skills: [
+      "Jest",
+      "Playwright",
+      "Vitest",
+      "Testing Library",
+      "ESLint",
+      "Prettier",
+    ],
+  },
+  {
+    category: "Design & Collaboration",
+    skills: [
+      "Figma",
+      "Design Systems",
+      "Wireframing",
+      "Agile / Scrum",
+      "Documentation",
+    ],
+  },
 ];
