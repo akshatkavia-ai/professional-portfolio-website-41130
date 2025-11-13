@@ -8,30 +8,36 @@ export type SkillsGroup = {
  * skillsByCategory
  * Skills grouped by category for the SkillsGrid component.
  * This export is consumed statically; keep the array and type stable.
+ *
+ * Order and labels must match the requested specification exactly.
  */
 export const skillsByCategory: SkillsGroup[] = [
   {
-    category: "Frontend",
-    skills: ["React", "Next.js", "TypeScript", "JavaScript", "HTML5", "CSS3"],
+    category: "Frontend Technologies",
+    skills: ["HTML", "CSS", "JavaScript", "React"],
   },
   {
-    category: "Backend",
-    skills: ["Node.js", "Express", "REST APIs", "GraphQL"],
+    category: "Backend Technologies",
+    skills: ["Next.js"],
   },
   {
     category: "Databases",
-    skills: ["PostgreSQL", "MongoDB", "Prisma"],
+    skills: ["MongoDB", "Database Management", "MySQL"],
   },
   {
-    category: "DevOps",
-    skills: ["Docker", "CI/CD", "GitHub Actions"],
+    category: "Other Skills",
+    skills: [
+      "Python",
+      "C",
+      "Data Analytics",
+      "OpenCV",
+      "YOLOv5",
+      "Google Maps API",
+      "Deep Learning",
+    ],
   },
   {
-    category: "Testing",
-    skills: ["Jest", "Playwright", "Testing Library"],
-  },
-  {
-    category: "Design",
-    skills: ["Figma", "Design Systems", "Wireframing"],
+    category: "Tools & Platforms",
+    skills: ["VS Code", "Jupyter Notebook", "Atlassian Jira", "Git", "GitHub"],
   },
 ];
