@@ -14,15 +14,15 @@ export type SkillsGroup = {
 export const skillsByCategory: SkillsGroup[] = [
   {
     category: "Frontend Technologies",
-    skills: ["HTML", "CSS", "JavaScript", "React"],
+    skills: ["HTML", "CSS", "JavaScript", "React", "Next.js", "TypeScript", "Tailwind CSS"],
   },
   {
     category: "Backend Technologies",
-    skills: ["Next.js"],
+    skills: ["Node.js", "Express.js", "REST APIs", "GraphQL"],
   },
   {
     category: "Databases",
-    skills: ["MongoDB", "Database Management", "MySQL"],
+    skills: ["PostgreSQL", "MySQL", "MongoDB", "SQLite", "Prisma ORM"],
   },
   {
     category: "Other Skills",
@@ -34,10 +34,24 @@ export const skillsByCategory: SkillsGroup[] = [
       "YOLOv5",
       "Google Maps API",
       "Deep Learning",
+      "CI/CD",
+      "Unit Testing",
+      "Accessibility (a11y)",
     ],
   },
   {
     category: "Tools & Platforms",
-    skills: ["VS Code", "Jupyter Notebook", "Atlassian Jira", "Git", "GitHub"],
+    skills: [
+      "Git",
+      "GitHub",
+      "GitLab",
+      "Docker",
+      "Vercel",
+      "Netlify",
+      "AWS",
+      "VS Code",
+      "Jupyter Notebook",
+      "Atlassian Jira"
+    ],
   },
 ];
