@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { getApiBase } from "@/lib/config/env";
 
 /**
@@ -16,8 +16,15 @@ export default function ContactForm() {
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [error, setError] = useState<string | null>(null);
+  
+  // Fix hydration issue: derive base only on client after mount
+  const [base, setBase] = useState<string | null>(null);
+  const [mounted, setMounted] = useState(false);
 
-  const base = getApiBase();
+  useEffect(() => {
+    setBase(getApiBase());
+    setMounted(true);
+  }, []);
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -58,7 +65,7 @@ export default function ContactForm() {
     } catch (err) {
       console.error(err);
       setStatus("error");
-      setError("We couldn’t send your message. Please try again later.");
+      setError("We couldn't send your message. Please try again later.");
     }
   };
 
@@ -139,7 +146,7 @@ export default function ContactForm() {
         >
           {status === "submitting" ? "Sending..." : "Send Message"}
         </button>
-        {!base && (
+        {mounted && !base && (
           <span className="text-xs text-gray-400">
             Demo mode: no backend configured.
           </span>
