@@ -23,11 +23,6 @@ export const educationList: Education[] = [
     period: "2019 — 2023",
     location: "Durg, Chhattisgarh, India",
     grade: "CGPA: 8.5/10",
-    highlights: [
-      "Relevant Coursework: Data Structures, Algorithms, Operating Systems, DBMS, Computer Networks",
-      "Led a team project on building a full-stack web application",
-      "Active member of the Coding Club and organized coding competitions",
-    ],
     url: "https://www.bitdurg.ac.in/",
   },
 ];

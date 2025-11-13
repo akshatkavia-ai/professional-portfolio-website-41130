@@ -12,67 +12,26 @@ export type SkillsGroup = {
 export const skillsByCategory: SkillsGroup[] = [
   {
     category: "Frontend",
-    skills: [
-      "React",
-      "Next.js",
-      "TypeScript",
-      "JavaScript (ES6+)",
-      "HTML5",
-      "CSS3",
-      "Tailwind CSS",
-      "Responsive Design",
-      "Accessibility (a11y)",
-    ],
+    skills: ["React", "Next.js", "TypeScript", "JavaScript", "HTML5", "CSS3"],
   },
   {
     category: "Backend",
-    skills: [
-      "Node.js",
-      "Express",
-      "REST APIs",
-      "GraphQL",
-      "WebSockets",
-      "Authentication & Authorization",
-    ],
-  },
-  {
-    category: "Cloud & DevOps",
-    skills: [
-      "Docker",
-      "Vercel",
-      "CI/CD",
-      "GitHub Actions",
-      "Linux",
-    ],
+    skills: ["Node.js", "Express", "REST APIs", "GraphQL"],
   },
   {
     category: "Databases",
-    skills: [
-      "PostgreSQL",
-      "MongoDB",
-      "Prisma ORM",
-      "Redis (basics)",
-    ],
+    skills: ["PostgreSQL", "MongoDB", "Prisma"],
   },
   {
-    category: "Testing & Quality",
-    skills: [
-      "Jest",
-      "Playwright",
-      "Vitest",
-      "Testing Library",
-      "ESLint",
-      "Prettier",
-    ],
+    category: "DevOps",
+    skills: ["Docker", "CI/CD", "GitHub Actions"],
   },
   {
-    category: "Design & Collaboration",
-    skills: [
-      "Figma",
-      "Design Systems",
-      "Wireframing",
-      "Agile / Scrum",
-      "Documentation",
-    ],
+    category: "Testing",
+    skills: ["Jest", "Playwright", "Testing Library"],
+  },
+  {
+    category: "Design",
+    skills: ["Figma", "Design Systems", "Wireframing"],
   },
 ];

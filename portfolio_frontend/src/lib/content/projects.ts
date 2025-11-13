@@ -25,7 +25,7 @@ export const projects: Project[] = [
       "A production-ready e-commerce application with product listings, cart, checkout, and order management.",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "Prisma"],
     live: "",
-    repo: "",
+    repo: "https://github.com/shishir-09/Shopnest-ecom",
     cover: "/og-image.png",
   },
   {
