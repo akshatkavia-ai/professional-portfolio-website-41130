@@ -17,12 +17,17 @@ export type Education = {
  */
 export const educationList: Education[] = [
   {
-    institution: "University of Example",
-    degree: "B.Sc.",
-    field: "Computer Science",
-    period: "2016 — 2020",
-    location: "Example City",
-    highlights: ["Graduated with Honors", "CS Club President"],
-    url: "https://www.example.edu",
+    institution: "Bhilai Institute Of Technology, Durg",
+    degree: "Bachelor of Technology (B.Tech)",
+    field: "Computer Science and Engineering",
+    period: "2019 — 2023",
+    location: "Durg, Chhattisgarh, India",
+    grade: "CGPA: 8.5/10",
+    highlights: [
+      "Relevant Coursework: Data Structures, Algorithms, Operating Systems, DBMS, Computer Networks",
+      "Led a team project on building a full-stack web application",
+      "Active member of the Coding Club and organized coding competitions",
+    ],
+    url: "https://www.bitdurg.ac.in/",
   },
 ];
