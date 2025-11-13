@@ -5,6 +5,8 @@ import ProjectsGrid from "@/components/ProjectsGrid";
 import SkillsGrid from "@/components/SkillsGrid";
 import ExperienceTimeline from "@/components/ExperienceTimeline";
 import ContactForm from "@/components/ContactForm";
+import EducationSection from "@/components/EducationSection";
+import CertificatesSection from "@/components/CertificatesSection";
 import { ClientReveal } from "./_client-reveal";
 
 export default function Home() {
@@ -43,6 +45,24 @@ export default function Home() {
           <h2 id="experience-heading" className="mb-10">Experience</h2>
           <div className="reveal">
             <ExperienceTimeline />
+          </div>
+        </div>
+      </section>
+
+      <section id="education" aria-labelledby="education-heading" className="bg-black">
+        <div className="container-pro">
+          <h2 id="education-heading" className="mb-10">Education</h2>
+          <div className="reveal">
+            <EducationSection />
+          </div>
+        </div>
+      </section>
+
+      <section id="certificates" aria-labelledby="certificates-heading" className="bg-black">
+        <div className="container-pro">
+          <h2 id="certificates-heading" className="mb-10">Certificates</h2>
+          <div className="reveal">
+            <CertificatesSection />
           </div>
         </div>
       </section>

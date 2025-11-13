@@ -4,6 +4,8 @@ export type Experience = {
   period: string;
   summary: string;
   highlights?: string[];
+  location?: string;
+  links?: { label: string; url: string }[];
 };
 
 /**

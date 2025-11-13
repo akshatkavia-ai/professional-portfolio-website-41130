@@ -6,6 +6,7 @@ export type Project = {
   tags: string[];
   live?: string;
   repo?: string;
+  docs?: string;
 };
 
 /**
