@@ -1,3 +1,4 @@
+import type { Viewport } from "next";
 import Link from "next/link";
 
 /**
@@ -5,6 +6,10 @@ import Link from "next/link";
  * NotFound
  * Default 404 page for the app directory. Provides clear messaging and quick actions.
  */
+export const viewport: Viewport = {
+  themeColor: "#000000",
+};
+
 export default function NotFound() {
   return (
     <div className="min-h-dvh flex items-center justify-center px-6">

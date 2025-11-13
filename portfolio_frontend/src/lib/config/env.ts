@@ -1,12 +1,49 @@
 type Nullable<T> = T | null;
 
-function readEnv(name: string): Nullable<string> {
-  const env = process.env as Record<string, string | undefined>;
-  if (typeof window !== "undefined") {
-    // prefer injected NEXT_PUBLIC_ vars at runtime if available
-    return env[name] ?? null;
+// Define a narrow typing for injected runtime environments
+type RuntimeEnv = Record<string, string | undefined>;
+interface GlobalWithEnv {
+  __ENV?: RuntimeEnv;
+}
+// Window typing with an optional ENV bag for runtime injection
+declare global {
+  interface Window {
+    ENV?: RuntimeEnv;
   }
-  return env[name] ?? null;
+}
+
+/**
+ * Safely read a public env var on both server and client without throwing in browsers.
+ * Order of precedence:
+ * 1) globalThis.__ENV[name] if available (supports runtime injection)
+ * 2) window.ENV[name] if available (browser-only injection)
+ * 3) process.env[name] read guarded with typeof process !== 'undefined' (build-time inline for NEXT_PUBLIC_*)
+ * 4) null if not found
+ */
+function safeReadPublicEnv(name: string): Nullable<string> {
+  try {
+    // 1) globalThis.__ENV
+    const g = (typeof globalThis !== "undefined" ? (globalThis as unknown as GlobalWithEnv) : undefined);
+    if (g && g.__ENV && typeof g.__ENV === "object") {
+      const v = g.__ENV[name];
+      if (typeof v === "string" && v.length > 0) return v;
+    }
+    // 2) window.ENV
+    if (typeof window !== "undefined" && window.ENV && typeof window.ENV === "object") {
+      const v = window.ENV[name];
+      if (typeof v === "string" && v.length > 0) return v;
+    }
+    // 3) Build-time NEXT_PUBLIC_* (guarded)
+    if (typeof process !== "undefined" && typeof process.env !== "undefined") {
+      const val = (process.env as Record<string, string | undefined>)[name];
+      if (typeof val === "string" && val.length > 0) {
+        return val;
+      }
+    }
+  } catch {
+    // Never throw in client; return null if anything goes wrong.
+  }
+  return null;
 }
 
 /**
@@ -15,7 +52,7 @@ function readEnv(name: string): Nullable<string> {
  * Returns NEXT_PUBLIC_FRONTEND_URL, if set.
  */
 export function getFrontendUrl(): Nullable<string> {
-  return readEnv("NEXT_PUBLIC_FRONTEND_URL");
+  return safeReadPublicEnv("NEXT_PUBLIC_FRONTEND_URL");
 }
 
 /**
@@ -24,7 +61,7 @@ export function getFrontendUrl(): Nullable<string> {
  * Returns NEXT_PUBLIC_BACKEND_URL, if set.
  */
 export function getBackendUrl(): Nullable<string> {
-  return readEnv("NEXT_PUBLIC_BACKEND_URL");
+  return safeReadPublicEnv("NEXT_PUBLIC_BACKEND_URL");
 }
 
 /**
@@ -33,7 +70,10 @@ export function getBackendUrl(): Nullable<string> {
  * Returns the base API URL from NEXT_PUBLIC_API_BASE or NEXT_PUBLIC_BACKEND_URL.
  */
 export function getApiBase(): Nullable<string> {
-  return readEnv("NEXT_PUBLIC_API_BASE") ?? readEnv("NEXT_PUBLIC_BACKEND_URL");
+  return (
+    safeReadPublicEnv("NEXT_PUBLIC_API_BASE") ??
+    safeReadPublicEnv("NEXT_PUBLIC_BACKEND_URL")
+  );
 }
 
 /**
@@ -42,7 +82,7 @@ export function getApiBase(): Nullable<string> {
  * Returns NEXT_PUBLIC_WS_URL, if set.
  */
 export function getWebsocketUrl(): Nullable<string> {
-  return readEnv("NEXT_PUBLIC_WS_URL");
+  return safeReadPublicEnv("NEXT_PUBLIC_WS_URL");
 }
 
 /**
@@ -51,7 +91,7 @@ export function getWebsocketUrl(): Nullable<string> {
  * Returns NEXT_PUBLIC_NODE_ENV, if set.
  */
 export function getNodeEnv(): Nullable<string> {
-  return readEnv("NEXT_PUBLIC_NODE_ENV");
+  return safeReadPublicEnv("NEXT_PUBLIC_NODE_ENV");
 }
 
 /**
@@ -60,7 +100,7 @@ export function getNodeEnv(): Nullable<string> {
  * Parse NEXT_PUBLIC_FEATURE_FLAGS as JSON or comma-separated list into a string array.
  */
 export function getFeatureFlags(): string[] {
-  const val = readEnv("NEXT_PUBLIC_FEATURE_FLAGS");
+  const val = safeReadPublicEnv("NEXT_PUBLIC_FEATURE_FLAGS");
   if (!val) return [];
   try {
     const parsed = JSON.parse(val);
@@ -87,7 +127,7 @@ export function getFeatureFlags(): string[] {
  * defaulting to "/health".
  */
 export function getHealthcheckPath(): string {
-  const p = readEnv("NEXT_PUBLIC_HEALTHCHECK_PATH");
+  const p = safeReadPublicEnv("NEXT_PUBLIC_HEALTHCHECK_PATH");
   if (!p) return "/health";
   // Ensure it begins with a slash
   return p.startsWith("/") ? p : `/${p}`;

@@ -1,5 +1,4 @@
-"use client";
-
+import type { Viewport } from "next";
 import Hero from "@/components/Hero";
 import ProjectsGrid from "@/components/ProjectsGrid";
 import SkillsGrid from "@/components/SkillsGrid";
@@ -9,6 +8,15 @@ import EducationSection from "@/components/EducationSection";
 import CertificatesSection from "@/components/CertificatesSection";
 import { ClientReveal } from "./_client-reveal";
 
+export const viewport: Viewport = {
+  themeColor: "#000000",
+};
+
+/**
+ * PUBLIC_INTERFACE
+ * Home
+ * Server component wrapper for the homepage; renders client components where needed.
+ */
 export default function Home() {
   return (
     <>

@@ -1,4 +1,5 @@
 import { getHealthcheckPath } from "@/lib/config/env";
+import type { Viewport } from "next";
 
 /**
  * PUBLIC_INTERFACE
@@ -7,6 +8,10 @@ import { getHealthcheckPath } from "@/lib/config/env";
  * path is /health by default. It does not use any server-only APIs to preserve
  * Next.js export compatibility.
  */
+export const viewport: Viewport = {
+  themeColor: "#000000",
+};
+
 export default function HealthPage() {
   // This is static; we keep it simple for export compatibility.
   // getHealthcheckPath is imported to ensure it's tree-shaken and typed, though
