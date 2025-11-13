@@ -8,7 +8,8 @@ import { socials } from "@/lib/content/socials";
  * projects and contact sections, plus a placeholder image.
  */
 export default function Hero() {
-  const socialLinks = socials.filter(s => s.url && s.label);
+  // Render all provided social links; do not filter to avoid hiding user data
+  const socialLinks = socials;
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-10">

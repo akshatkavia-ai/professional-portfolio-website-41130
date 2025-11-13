@@ -11,36 +11,39 @@ export type Experience = {
 /**
  * PUBLIC_INTERFACE
  * experiences
- * Placeholder experience timeline data to render in ExperienceTimeline.
+ * User-provided experience timeline data to render in ExperienceTimeline.
  */
 export const experiences: Experience[] = [
   {
-    company: "Oceanic Labs",
-    role: "Senior Frontend Engineer",
+    company: "Freelance",
+    role: "Full Stack Developer",
     period: "2023 — Present",
     summary:
-      "Leading UI architecture and accessibility initiatives for high-traffic SaaS dashboards.",
+      "Building full-stack applications with modern web technologies; focusing on scalable, maintainable solutions.",
     highlights: [
-      "Reduced bundle size by 28% through route-level code-splitting and design tokenization.",
-      "Implemented comprehensive a11y standards and automated audits.",
+      "Delivered multiple client projects with Next.js, Prisma, and PostgreSQL.",
+      "Implemented CI/CD pipelines and Dockerized deployments for reliability."
     ],
   },
   {
-    company: "WaveWorks",
-    role: "Frontend Engineer",
-    period: "2021 — 2023",
+    company: "Enigma",
+    role: "Software Development Intern",
+    period: "2022 — 2023",
     summary:
-      "Built and maintained customer-facing portals with robust component libraries.",
+      "Contributed to web development tasks, bug fixes, and feature implementations under mentorship.",
     highlights: [
-      "Shipped a reusable component library and dark-mode ready theming.",
-      "Improved form UX with better validation, error states, and keyboard flows.",
+      "Improved existing components and optimized database queries.",
+      "Participated in code reviews and documentation improvements."
     ],
   },
   {
-    company: "Freelance",
-    role: "Web Developer",
-    period: "2019 — 2021",
+    company: "DSC BITD",
+    role: "Team Member",
+    period: "2020 — 2022",
     summary:
-      "Delivered performant websites and apps for startups and agencies with a focus on bold visuals.",
+      "Active member contributing to community projects and technical workshops.",
+    highlights: [
+      "Organized sessions and collaborated on open-source initiatives."
+    ],
   },
 ];

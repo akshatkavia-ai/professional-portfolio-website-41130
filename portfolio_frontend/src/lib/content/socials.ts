@@ -13,25 +13,25 @@ export type Social = {
  * PUBLIC_INTERFACE
  * socials
  * Social links to render in Hero/Footer or any social bar.
- * Replace these placeholders with actual profile links.
+ * Provided by user; ensure LinkedIn has https scheme.
  */
 export const socials: Social[] = [
   {
     label: "GitHub",
     title: "Visit my GitHub profile",
-    url: "https://github.com/your-username",
+    url: "https://github.com/shishir-09",
     icon: "github",
   },
   {
     label: "LinkedIn",
     title: "Connect with me on LinkedIn",
-    url: "https://www.linkedin.com/in/your-handle",
+    url: "https://www.linkedin.com/in/shishir-09",
     icon: "linkedin",
   },
   {
     label: "Website",
     title: "Personal website",
-    url: "https://your-website.example.com",
+    url: "https://shishir.dev",
     icon: "website",
   },
 ];

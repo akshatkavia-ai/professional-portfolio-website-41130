@@ -12,8 +12,7 @@ export type Education = {
 /**
  * PUBLIC_INTERFACE
  * educationList
- * Education items to render in the Education section.
- * Replace with user-provided education data.
+ * User-provided education items to render in the Education section.
  */
 export const educationList: Education[] = [
   {

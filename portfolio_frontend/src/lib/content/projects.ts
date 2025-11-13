@@ -14,7 +14,7 @@ export type Project = {
 /**
  * PUBLIC_INTERFACE
  * projects
- * Provided project content to render in the ProjectsGrid.
+ * User-provided project content to render in the ProjectsGrid.
  */
 export const projects: Project[] = [
   {
