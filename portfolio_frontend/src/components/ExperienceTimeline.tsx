@@ -10,10 +10,8 @@ export default function ExperienceTimeline() {
     <ol className="relative border-s border-white/10">
       {experiences.map((exp, idx) => (
         <li key={`${exp.company}-${idx}`} className="ms-6 py-6">
-          <span className="absolute -start-3 mt-2 flex h-6 w-6 items-center justify-center rounded-full bg-orange-500 text-black ring-2 ring-black">
-            {/* bullet */}
-          </span>
-          <div className="card-surface p-5">
+          <span className="absolute -start-3 mt-2 flex h-6 w-6 items-center justify-center rounded-full bg-orange-500 text-black ring-2 ring-black" />
+          <div tabIndex={0} className="card-surface p-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500">
             <div className="flex flex-wrap items-baseline justify-between gap-3">
               <h3 className="text-lg font-semibold">
                 {exp.role} — <span className="text-gray-300">{exp.company}</span>

@@ -7,12 +7,32 @@
   --surface: #1F2937;     /* slate-800 surface */
   --text: #FFFFFF;        /* on dark text */
   --primary: #F97316;     /* orange-500 */
+  --primary-600: #EA580C; /* hover */
   --secondary: #10B981;   /* emerald-500 */
+  --secondary-600: #059669;
+
   --success: #10B981;
   --error: #EF4444;
   --muted: #9CA3AF;       /* gray-400 */
   --ring: #F97316;
   --border: #334155;      /* slate-700 */
+
+  --radius-lg: 14px;
+  --radius-xl: 18px;
+
+  --shadow-sm: 0 1px 2px rgba(0,0,0,.25);
+  --shadow-md: 0 8px 20px rgba(0,0,0,.35);
+  --shadow-lg: 0 18px 40px rgba(0,0,0,.45);
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 /* Base layer */
@@ -29,6 +49,10 @@
     background-color: var(--bg);
     color: var(--text);
     font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    background:
+      radial-gradient(1200px 600px at 50% -10%, rgba(249,115,22,0.08), transparent 60%),
+      radial-gradient(800px 400px at 80% 10%, rgba(16,185,129,0.07), transparent 60%),
+      var(--bg);
   }
 
   /* Focus visible for accessibility */
@@ -37,11 +61,13 @@
     outline-offset: 2px;
   }
 
-  /* Headings */
+  /* Headings with consistent scale */
   h1 { @apply text-4xl md:text-6xl font-extrabold tracking-tight; }
   h2 { @apply text-3xl md:text-4xl font-bold tracking-tight; }
   h3 { @apply text-2xl font-semibold; }
   p  { @apply text-base leading-7 text-gray-300; }
+
+  section { @apply py-16; }
 }
 
 /* Component layer utilities */
@@ -51,10 +77,54 @@
   }
 
   .card-surface {
-    @apply bg-[color:var(--surface)]/80 text-white backdrop-blur rounded-2xl border border-[color:var(--border)] shadow-lg shadow-black/30;
+    @apply bg-[color:var(--surface)]/80 text-white backdrop-blur border border-[color:var(--border)];
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-sm);
+    transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease, background-color 200ms ease;
+  }
+  .card-surface:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: color-mix(in oklab, var(--ring) 35%, var(--border));
+  }
+  .card-surface:focus-within,
+  .card-surface:focus-visible {
+    box-shadow: var(--shadow-lg), 0 0 0 3px color-mix(in oklab, var(--ring) 55%, transparent);
+    outline: none;
   }
 
-  /* Button utilities removed; using inline classes to avoid unknown utility errors in Tailwind v4 JIT */
+  .btn {
+    @apply inline-flex items-center justify-center font-semibold transition-colors;
+    padding: 0.65rem 1rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid transparent;
+    box-shadow: var(--shadow-sm);
+    transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease, color 180ms ease, border-color 180ms ease;
+  }
+  .btn:focus-visible {
+    outline: none;
+    box-shadow: var(--shadow-md), 0 0 0 3px color-mix(in oklab, var(--ring) 60%, transparent);
+  }
+  .btn:active { transform: translateY(1px); }
+  .btn-primary {
+    background: var(--primary);
+    color: #0b0b0b;
+  }
+  .btn-primary:hover {
+    background: var(--primary-600);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+  }
+  .btn-secondary {
+    background: color-mix(in oklab, var(--secondary) 18%, transparent);
+    border-color: color-mix(in oklab, var(--secondary) 45%, transparent);
+    color: #E5E7EB;
+  }
+  .btn-secondary:hover {
+    background: color-mix(in oklab, var(--secondary) 28%, transparent);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+  }
 
   .chip {
     @apply inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-sm text-gray-200;
@@ -62,6 +132,33 @@
 
   .surface-border {
     @apply border border-[color:var(--border)];
+  }
+
+  /* Reveal animation helper */
+  .reveal {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 500ms ease, transform 500ms ease;
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Mobile menu transition container */
+  .mobile-menu {
+    transition: opacity 200ms ease, transform 200ms ease, visibility 200ms;
+    transform-origin: top right;
+  }
+  .mobile-menu[data-state="closed"] {
+    opacity: 0;
+    transform: scale(0.98) translateY(-4px);
+    visibility: hidden;
+  }
+  .mobile-menu[data-state="open"] {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    visibility: visible;
   }
 }
 
@@ -82,5 +179,20 @@
   }
   .skip-link {
     @apply sr-only focus:not-sr-only fixed left-4 top-4 z-[100] rounded bg-black/80 px-4 py-2 text-white ring-2 ring-orange-500;
+  }
+
+  /* Responsive grid helper */
+  .grid-responsive {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  @media (max-width: 1024px) {
+    .grid-responsive {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  @media (max-width: 640px) {
+    .grid-responsive {
+      grid-template-columns: 1fr;
+    }
   }
 }

@@ -22,18 +22,8 @@ export default function Hero() {
           TypeScript, and performant, inclusive interfaces.
         </p>
         <div className="flex flex-wrap items-center gap-3">
-          <a
-            href="#projects"
-            className="inline-flex items-center justify-center rounded-full px-5 py-2.5 font-semibold transition-colors bg-[color:var(--primary)] text-black hover:bg-orange-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
-          >
-            View Projects
-          </a>
-          <a
-            href="#contact"
-            className="inline-flex items-center justify-center rounded-full px-5 py-2.5 font-semibold transition-colors bg-transparent text-white border border-white/20 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2"
-          >
-            Contact Me
-          </a>
+          <a href="#projects" className="btn btn-primary">View Projects</a>
+          <a href="#contact" className="btn btn-secondary">Contact Me</a>
         </div>
       </div>
       <div className="relative">

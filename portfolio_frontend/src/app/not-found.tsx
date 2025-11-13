@@ -9,18 +9,8 @@ export default function NotFound() {
           The page you’re looking for doesn’t exist or has been moved.
         </p>
         <div className="flex items-center justify-center gap-3">
-          <Link
-            href="/"
-            className="inline-flex items-center justify-center rounded-full px-5 py-2.5 font-semibold transition-colors bg-[color:var(--primary)] text-black hover:bg-orange-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
-          >
-            Go Home
-          </Link>
-          <a
-            href="#contact"
-            className="inline-flex items-center justify-center rounded-full px-5 py-2.5 font-semibold transition-colors bg-transparent text-white border border-white/20 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2"
-          >
-            Contact
-          </a>
+          <Link href="/" className="btn btn-primary">Go Home</Link>
+          <a href="#contact" className="btn btn-secondary">Contact</a>
         </div>
       </div>
     </div>

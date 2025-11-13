@@ -10,7 +10,7 @@ export default function ProjectsGrid() {
   return (
     <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {projects.map((p) => (
-        <article key={p.slug} className="card-surface p-6 h-full flex flex-col">
+        <article tabIndex={0} key={p.slug} className="card-surface p-6 h-full flex flex-col focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500">
           <header className="mb-3">
             <h3 className="text-xl font-semibold">{p.title}</h3>
             {p.subtitle && <p className="text-gray-400 text-sm">{p.subtitle}</p>}
@@ -24,7 +24,7 @@ export default function ProjectsGrid() {
           <div className="flex items-center gap-3 mt-auto">
             {p.live && (
               <a
-                className="inline-flex items-center justify-center rounded-full px-4 py-2 font-semibold transition-colors bg-transparent text-white border border-white/20 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2"
+                className="btn btn-secondary"
                 href={p.live}
                 target="_blank"
                 rel="noreferrer"
@@ -34,7 +34,7 @@ export default function ProjectsGrid() {
             )}
             {p.repo && (
               <a
-                className="inline-flex items-center justify-center rounded-full px-4 py-2 font-semibold transition-colors bg-transparent text-white border border-white/20 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2"
+                className="btn btn-secondary"
                 href={p.repo}
                 target="_blank"
                 rel="noreferrer"

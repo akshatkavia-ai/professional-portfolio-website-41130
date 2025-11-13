@@ -133,7 +133,7 @@ export default function ContactForm() {
       <div className="mt-6 flex items-center gap-4">
         <button
           type="submit"
-          className="inline-flex items-center justify-center rounded-full px-5 py-2.5 font-semibold transition-colors bg-[color:var(--primary)] text-black hover:bg-orange-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 disabled:opacity-60"
+          className="btn btn-primary disabled:opacity-60"
           disabled={status === "submitting"}
           aria-disabled={status === "submitting"}
         >
